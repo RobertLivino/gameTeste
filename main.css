@@ -13,6 +13,7 @@ h1{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 5px;
 
     .topbar-logo{
         height: 100px;
@@ -20,15 +21,19 @@ h1{
             height: 100%;
         }
     }
-    .topbar-itens{
+    .topbar-items{
         align-items: center;
-        .topbar-itens-buttons{
+        .topbar-items-buttons{
             height: 100%;
-            background-color: transparent;
+            background-color: gray;
             border-width: 0px 1px;
             padding: 15px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 300ms ease-in-out;
+            z-index: 1;
         }
-        .topbar-itens-buttons::before{
+        .topbar-items-buttons::before{
             z-index: -1;
             position: absolute;
             content: '';
@@ -37,6 +42,17 @@ h1{
             left: 0;
             bottom: 0;
             right: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 300ms ease-in-out;
+        }
+        .topbar-items-buttons:hover::before{
+            transform: scaleX(1);
+        }
+        .topbar-items-buttons:hover{
+            color: aliceblue;
+            background-color: gray;
+            transform: scaleX(1);
         }
     }
 }
