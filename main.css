@@ -1,9 +1,10 @@
 *, *::before, *::after{
     box-sizing: border-box;
 }
+
 body{
     margin: 0%;
-    background-color: aqua;
+    background-color: var(--background-color);
 }
 h1{
     padding: 0%;
@@ -13,45 +14,49 @@ h1{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5px;
+    padding: 0px 5px;
+    background-color: var(--topbar-background-color);
 
     .topbar-logo{
-        height: 100px;
+        height: var(--topbar-size-height);
         .topbar-logo-img{
             height: 100%;
         }
     }
     .topbar-items{
         align-items: center;
+        display: flex !important;
         .topbar-items-buttons{
-            height: 100%;
-            background-color: gray;
-            border-width: 0px 1px;
-            padding: 15px;
+            height: var(--topbar-size-height);
+            width: var(--topbar-size-width);
+            background-color: transparent;
             position: relative;
             cursor: pointer;
             transition: transform 300ms ease-in-out;
             z-index: 1;
+            border: none;
+            padding: 0%;
         }
         .topbar-items-buttons::before{
             z-index: -1;
             position: absolute;
             content: '';
-            background-color: blue;
+            background-color: var(--topbar-button-color);
             top: 0;
             left: 0;
             bottom: 0;
             right: 0;
             transform: scaleX(0);
-            transform-origin: left;
+            transform-origin: right;
             transition: transform 300ms ease-in-out;
         }
         .topbar-items-buttons:hover::before{
             transform: scaleX(1);
+            transform-origin: left;
         }
         .topbar-items-buttons:hover{
-            color: aliceblue;
-            background-color: gray;
+            color: white;
+            background-color: var(--topbar-background-color);
             transform: scaleX(1);
         }
     }

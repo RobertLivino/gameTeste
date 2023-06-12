@@ -1,0 +1,14 @@
+:root{
+    --base-color: #0511F2;
+    --secondary-color: #D90404;
+    --dark-blue-color: #020659;
+    --dark-red-color: #730202;
+    --alternative-blue-color: #030A8C;
+    
+    --background-color: #F0F0F0;
+
+    --topbar-background-color: var(--base-color);
+    --topbar-button-color: var(--dark-blue-color);
+    --topbar-size-height: 100px;
+    --topbar-size-width: 60px;
+}
