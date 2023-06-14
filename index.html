@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="css\main.css">
+    <link rel="stylesheet" href="css\variables.css">
     <title>NBA</title>
 </head>
 <body>
     <div class="topbar">
-        <div class="topbar-logo">
-            <img src="https://cdn.freebiesupply.com/images/large/2x/nba-logo-transparent.png" alt="" class="topbar-logo-img">
-        </div>
-        <div class="topbar-items" id="topbarItems">
-            <button class="topbar-items-buttons" href="index.html">home</button>
-            <button class="topbar-items-buttons" id="button-test" href="index.html">home</button>
-            <button class="topbar-items-buttons" href="index.html">home</button>
-            <button class="topbar-items-buttons" href="index.html">home</button>
-            <button class="topbar-items-buttons" href="index.html">home</button>
-            <button class="topbar-items-buttons" href="index.html">home</button>
-        </div>
+        <p class="topbar-text">
+            Mouse pos: <b><span id="mouse-pos"></span></b>
+        </p>
+        <p class="topbar-text">
+            basket pos: <b><span id="basket-pos"></span></b>
+        </p>
+        <p class="topbar-text">
+            ball pos: <b><span id="ball-pos"></span></b>
+        </p>
+        <p class="topbar-text score">
+            your score: <b><span id="player-score"></span></b>
+        </p>
     </div>
-    <p>
-        Mouse pos: <b><span id="mouse-pos"></span></b>
-      </p>
-    <script src="butons.js"></script>
+    <div id="basket" class="basket"></div>
+    <div id="basket-Ball" class="ball"></div>
+    <script src="objects.js"></script>
 </body>
 </html>

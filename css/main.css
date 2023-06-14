@@ -1,0 +1,41 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0%;
+    background-color: var(--background-color);
+}
+h1{
+    padding: 0%;
+    margin: 0%;
+}
+.basket{
+    height: 20px;
+    width: 150px;
+    background-color: gray;
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    border-radius: 50px;
+}
+.ball{
+    height: 50px;
+    width: 50px;
+    background-color: orangered;
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    border-radius: 50%;
+    cursor: grab;
+}
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    .topbar-text{
+        user-select: none;
+    }
+    .score{
+        margin-right: 50px;
+    }
+}
