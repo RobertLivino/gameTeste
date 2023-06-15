@@ -1,3 +1,3 @@
 # gameTeste
 
-creating a game teste
+creating a game project
