@@ -1,3 +1,4 @@
+let lessVelocity = { x: 1, y: 1 };
 let speed;
 let maxSpeed = { x: 0, y: 0 };
 let isDragging = false;
@@ -118,6 +119,8 @@ function bollFallingDown(x, y) {
 function update(object, gravity, position, velocity, speedScale) {
     ballPos.textContent = `(${basketBall.offsetLeft}, ${basketBall.offsetTop})`;
     if (!bollFalling) {
+        lessVelocity.x = -0.8;
+        lessVelocity.y = -0.8;
         dragElement(object);
         return;
     }
@@ -152,25 +155,47 @@ function update(object, gravity, position, velocity, speedScale) {
     velocity.y += gravity;
 
     if ((position.y + object.offsetHeight) >= window.innerHeight) {
-        velocity.y *= -0.8;
+        if (velocity.y < (-lessVelocity.y) || velocity.y < 0.999) {
+            if (velocity.y >= 0) {
+                lessVelocity.y = 1;
+            }
+            if (velocity.y < 0 && lessVelocity.y != 1) {
+                lessVelocity.y += 0.15;
+            }
+        }
+        lessVelocity.x += 0.05;
+        if (lessVelocity.x > 1) {
+            lessVelocity.x = 1;
+        }
+
+        velocity.x *= (-lessVelocity.x);
+        velocity.y *= lessVelocity.y;
 
         position.y = window.innerHeight - object.offsetHeight;
     }
     if (position.y <= 0) {
-        velocity.y *= -0.8;
+        lessVelocity.y += 0.05;
+        velocity.y *= lessVelocity.y;
 
         position.y = 0;
     }
     if ((position.x + object.offsetWidth) >= window.innerWidth) {
-        velocity.x *= -0.8;
+        lessVelocity.x += 0.1;
+        if (lessVelocity.x > 1) {
+            lessVelocity.x = 1;
+        }
+        velocity.x *= lessVelocity.x;
 
         position.x = window.innerWidth - object.offsetWidth;
     }
     if (position.x <= 0) {
-        velocity.x *= -0.8;
+        lessVelocity.x += 0.1;
+        velocity.x *= lessVelocity.x;
 
         position.x = 0;
     }
+
+
 
     object.style.top = position.y + "px";
     object.style.left = position.x + "px";
